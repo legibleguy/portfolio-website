@@ -1,0 +1,174 @@
+CTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andy's Portfolio</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            z-index: 100;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .nav {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+        }
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .nav li {
+            margin-bottom: 10px;
+        }
+        .nav a {
+            color: #BFBFBF;
+            text-decoration: none;
+        }
+        .nav a.active {
+            color: #FF3737;
+        }
+        .welcome {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .projects {
+            padding-top: 50px;
+        }
+        .project {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .footer ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>yes, this is andy</h1>
+        </header>
+
+        <nav class="nav">
+            <ul id="projectList">
+                <li><a href="#welcome">Home</a></li>
+                <!-- Project links will be dynamically added here -->
+            </ul>
+        </nav>
+
+        <main>
+            <section id="welcome" class="welcome">
+                <h2>game design and software engineering</h2>
+                <p>scroll down for projects</p>
+                <ul>
+                    <li><a href="#">CV</a></li>
+                    <li><a href="https://itch.io" target="_blank">itch.io</a></li>
+                    <li><a href="https://github.com" target="_blank">github</a></li>
+                    <li><a href="https://reddit.com" target="_blank">reddit</a></li>
+                    <li><a href="https://artstation.com" target="_blank">artstation</a></li>
+                </ul>
+            </section>
+
+            <div class="projects">
+                <!-- Project sections will be dynamically added here -->
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>thanks for visiting!</p>
+            <p>let's stay in touch</p>
+            <ul>
+                <li><a href="#">full list of games & assets</a></li>
+                <li><a href="#">fonts used here</a></li>
+                <li>andysolovyov1@gmail.com</li>
+            </ul>
+        </footer>
+    </div>
+
+    <script>
+        const projects = [
+            "call of duty modern warfare III",
+            "jerry gets fired",
+            "the arbor bar",
+            "the butcher's harvest",
+            "mission lost control",
+            "slasher demo",
+            "kaiju insurance llc"
+        ];
+
+        const projectList = document.getElementById('projectList');
+        const projectsContainer = document.querySelector('.projects');
+
+        projects.forEach(project => {
+            // Add to navigation
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = `#${project.replace(/\s+/g, '-')}`;
+            a.textContent = project;
+            li.appendChild(a);
+            projectList.appendChild(li);
+
+            // Create project section
+            const section = document.createElement('section');
+            section.id = project.replace(/\s+/g, '-');
+            section.className = 'project';
+            section.innerHTML = `<h2>${project}</h2>`;
+            projectsContainer.appendChild(section);
+        });
+
+        // Highlight active project in navigation
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            document.querySelectorAll('.project').forEach(section => {
+                if (section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+                    document.querySelectorAll('.nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === section.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
