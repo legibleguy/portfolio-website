@@ -30,11 +30,16 @@
     justify-content: space-between;
     padding: 20px;
     box-sizing: border-box; /* Ensure padding is respected */
+    pointer-events: none; /* Makes the header non-interactive */
   }
   
   #logo {
     color: #FFF;
     font-size: 20px;
+  }
+
+  #logo, #project-list, #links {
+    pointer-events: auto; /* Re-enables interaction for these elements */
   }
   
   #welcome {
@@ -128,4 +133,156 @@
     color: #000000;
     line-height: 57px;
   }
-  
+
+  /* Call of Duty Section */
+#project1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #000; /* Optional background if needed */
+  color: white;
+}
+
+#cod-title {
+  margin-bottom: 30px;
+}
+
+#cod-call-duty {
+  font-family: 'Sporting Grotesque', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 0.95em;
+  color: #d3d3d3;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#cod-of {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.55em;
+  color: #d3d3d3;
+}
+
+#cod-mw3 {
+  font-family: 'Sporting Grotesque', sans-serif;
+  font-size: 48px;
+  letter-spacing: 5px;
+  color: #fff;
+  margin-top: 15px;
+}
+
+#cod-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+#cod-image {
+  width: 371px;
+  height: auto;
+  object-fit: cover;
+}
+
+#cod-description {
+  font-family: 'Terminal Grotesque', sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 285px;
+}
+
+  /* Jerry Gets Fired Section */
+#project2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  background-color: #000;
+}
+
+#jerry-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#jerry-text {
+  font-family: 'Sporting Grotesque', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 0.95em;
+  color: #d3d3d3;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#gets-text {
+  font-family: 'Sporting Grotesque', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  color: #ffffff;
+  margin-top: -20px;
+}
+
+#fired-text {
+  font-family: 'Sporting Grotesque', sans-serif;
+  font-size: 96px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: #ff4242;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#jerry-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+#jerry-description {
+  font-family: 'Terminal Grotesque', sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 285px;
+  margin-bottom: 20px;
+}
+
+#jerry-description ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+#jerry-images {
+  display: flex;
+  position: relative;
+}
+
+.jerry-img {
+  position: absolute;
+  object-fit: cover;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+#img1 {
+  top: 0;
+  left: 50px;
+  width: 349px;
+  height: 169px;
+}
+
+#img2 {
+  top: 50px;
+  left: 160px;
+  width: 459px;
+  height: 177px;
+}
+
+#img3 {
+  top: -50px;
+  left: 450px;
+  width: 365px;
+  height: 400px;
+}
